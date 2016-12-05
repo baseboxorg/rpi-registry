@@ -1,5 +1,5 @@
 DOCKER_IMAGE_VERSION=0.0.1
-DOCKER_IMAGE_NAME=cblomart/rpi-registry
+DOCKER_IMAGE_NAME=baseboxorg/rpi-registry
 DOCKER_IMAGE_TAGNAME=$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 default: build
@@ -8,7 +8,7 @@ bin:
 	mkdir bin
 
 $(GOPATH)/bin/linux_arm/registry:
-	GOOS=linux GOARCH=arm  GOARM=5 go get github.com/docker/distribution/cmd/registry
+	GOOS=linux GOARCH=arm  GOARM=7 go get github.com/docker/distribution/cmd/registry
 
 build: $(GOPATH)/bin/linux_arm/registry bin
 	cp $(GOPATH)/bin/linux_arm/registry ./bin/
